@@ -69,9 +69,7 @@ struct ContentView: View {
             Button {
                 countCorrect = 0
                 countWrong = 0
-                number1 = 4
-                number2 = 2
-                resultNumber = 9
+                reloadGame()
             } label: {
                 Text("카우트 초기화")
             }
@@ -81,18 +79,26 @@ struct ContentView: View {
     }
     func reloadGame() {
         // 게임 재시작 로직
-        number1 = Int.random(in:0...10)
-        number2 = Int.random(in:0...10)
-        var randomOperator = Int.random(in:0...2)
-        switch(randomOperator) {
-        case 0:
-            resultNumber = number1 + number2
-        case 1:
-            resultNumber = number1 - number2
-        case 2:
+        number1 = Int.random(in:1...10)
+        number2 = Int.random(in:1...10)
+        
+//        var randomOperator = Int.random(in:0...2)
+//        switch(randomOperator) {
+//        case 0:
+//            resultNumber = number1 + number2
+//        case 1:
+//            resultNumber = number1 - number2
+//        case 2:
+//            resultNumber = number1 * number2
+//        default:
+//            resultNumber = number1 * number2
+//        }
+        if Bool.random() {
             resultNumber = number1 * number2
-        default:
-            resultNumber = number1 * number2
+        } else {
+            repeat {
+                resultNumber = Int.random(in:1...100)
+            } while resultNumber == number1 * number2
         }
     }
     func selectCorrect() {
