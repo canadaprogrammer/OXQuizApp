@@ -96,8 +96,11 @@ struct ContentView: View {
         
         
 //        resultNumber = [number1 + number2, number1 - number2, number1 * number2].randomElement()!
-        
-        if Bool.random() {
+        // 50% true or false
+//        if Bool.random() {
+        // 80% true, 20% false
+        let seedNumber = Int.random(in:0..<10)
+        if seedNumber < 8  {
             resultNumber = number1 * number2
         } else {
             repeat {
