@@ -93,6 +93,10 @@ struct ContentView: View {
 //        default:
 //            resultNumber = number1 * number2
 //        }
+        
+        
+//        resultNumber = [number1 + number2, number1 - number2, number1 * number2].randomElement()!
+        
         if Bool.random() {
             resultNumber = number1 * number2
         } else {
@@ -100,6 +104,7 @@ struct ContentView: View {
                 resultNumber = Int.random(in:1...100)
             } while resultNumber == number1 * number2
         }
+        
     }
     func selectCorrect() {
         // 정답 선택시 로직
